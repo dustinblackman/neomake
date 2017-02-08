@@ -5,12 +5,11 @@ function! neomake#makers#ft#typescript#EnabledMakers() abort
 endfunction
 
 function! neomake#makers#ft#typescript#tsc() abort
-    " tsc should not be passed a single file.  Changing to the file's dir will
-    " make it look upwards for a tsconfig.json file.
+    " tsc should not be passed a single file. tsc will automaticially
+    " look upwards for tsconfig.json
     return {
         \ 'args': ['--noEmit'],
         \ 'append_file': 0,
-        \ 'cwd': '%:p:h',
         \ 'errorformat':
             \ '%E%f %#(%l\,%c): error %m,' .
             \ '%E%f %#(%l\,%c): %m,' .
